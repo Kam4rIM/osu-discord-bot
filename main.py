@@ -1,6 +1,7 @@
 import requests
 import discord
 
+
 def get_token():
     user = open('osu.txt').readlines()
     URL = "https://osu.ppy.sh/oauth/token"
@@ -34,6 +35,7 @@ def get_scores(user, mode='osu', limit=5, offset=0):
     }
 
     return requests.get(URL, params=params, headers=headers).json()
+
 
 def get_recent_score(user, mode='osu'):
     token = get_token()
@@ -72,12 +74,6 @@ def get_userid(nickname):
 
     response = requests.get(URL, params=params, headers=headers)
     return response.json()['user']['data'][0]['id']
-
-
-
-
-
-
 
 
 ds_token = open('token.txt').readline()
